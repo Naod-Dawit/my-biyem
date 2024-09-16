@@ -1,3 +1,4 @@
+// models/CustomerSchema.js
 const mongoose = require("mongoose");
 
 const CustomerSchema = new mongoose.Schema({
@@ -7,9 +8,7 @@ const CustomerSchema = new mongoose.Schema({
   phone: { type: String, required: true },
   expiryDate: { type: Date, required: true },
 });
-const myDatabase = mongoose.connection.useDb('GYM');
 
+const Customer = mongoose.connection.useDb("GYM").model("Member", CustomerSchema);
 
-
-const Customer = myDatabase.model("Member", CustomerSchema);
 module.exports = Customer;

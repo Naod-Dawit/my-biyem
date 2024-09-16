@@ -5,7 +5,9 @@ const app = express();
 const Customer = require("./models/CustomerSchema");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin:'*'
+}));
 const ConnectDb=require("./utils/db");
 const Getdata = require("./controllers/getMembers");
 ConnectDb()
